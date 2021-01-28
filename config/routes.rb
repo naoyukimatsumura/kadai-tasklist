@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root to: 'tasks#index'
   
-  get 'toppages/index'
-  
   get 'users/new'
   get 'users/create'
     

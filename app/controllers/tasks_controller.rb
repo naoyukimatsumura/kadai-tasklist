@@ -5,7 +5,6 @@ class TasksController < ApplicationController
     
     def index
         if logged_in?
-          @task =current_user.tasks.build #form_with用
           @tasks = current_user.tasks.order(id: :desc).page(params[:page])
         end
     end
@@ -45,7 +44,6 @@ class TasksController < ApplicationController
     end
     
     def destroy
-        @task = current_user.tasks.find(params[:id])
         @task.destroy
         
         flash[:success] = 'Task は正常に削除されました'
